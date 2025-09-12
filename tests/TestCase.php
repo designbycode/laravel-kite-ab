@@ -2,9 +2,9 @@
 
 namespace Designbycode\Kite\Tests;
 
+use Designbycode\Kite\KiteServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Designbycode\Kite\KiteServiceProvider;
 
 class TestCase extends Orchestra
 {

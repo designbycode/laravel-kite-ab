@@ -2,9 +2,9 @@
 
 namespace Designbycode\Kite;
 
+use Designbycode\Kite\Commands\KiteCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Designbycode\Kite\Commands\KiteCommand;
 
 class KiteServiceProvider extends PackageServiceProvider
 {
