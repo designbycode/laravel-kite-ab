@@ -19,7 +19,6 @@ class KiteServiceProvider extends PackageServiceProvider
             ->name('kite')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_kite_table')
             ->hasCommand(KiteCommand::class);
     }
 }
