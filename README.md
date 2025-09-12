@@ -1,19 +1,9 @@
-# This is my package kite
+# Laravel Kite
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/designbycode/kite.svg?style=flat-square)](https://packagist.org/packages/designbycode/kite)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/designbycode/kite/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/designbycode/kite/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/designbycode/kite/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/designbycode/kite/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/designbycode/kite.svg?style=flat-square)](https://packagist.org/packages/designbycode/kite)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/kite.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/kite)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+A set of beautiful, accessible, and customizable Blade components for Laravel, inspired by shadcn/ui. Built with Tailwind CSS and Alpine.js.
 
 ## Installation
 
@@ -23,38 +13,82 @@ You can install the package via composer:
 composer require designbycode/kite
 ```
 
-You can publish and run the migrations with:
+## Setup
+
+To use the components, you need to include the necessary CSS and JavaScript in your layout. Kite provides Blade directives to make this easy.
+
+Add the `@kiteStyles` directive in the `<head>` of your layout file, and `@kiteScripts` just before the closing `</body>` tag.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    ...
+    @kiteStyles
+</head>
+<body>
+    ...
+    @kiteScripts
+</body>
+</html>
+```
+
+After adding the directives, you need to publish the assets:
 
 ```bash
-php artisan vendor:publish --tag="kite-migrations"
-php artisan migrate
+php artisan vendor:publish --tag="kite-assets"
 ```
 
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="kite-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="kite-views"
-```
+This will copy the compiled CSS and JS to your `public/vendor/kite` directory.
 
 ## Usage
 
-```php
-$kite = new Designbycode\Kite();
-echo $kite->echoPhrase('Hello, Designbycode!');
+You can use the components in your Blade views with the `x-kite::` prefix or the shorter `<kite:` syntax.
+
+### Example
+
+Here is the example from the initial request, now fully functional:
+
+```html
+<x-kite::card class="w-full max-w-md mx-auto space-y-6">
+    <div>
+        <x-kite::heading size="lg">Log in to your account</x-kite::heading>
+        <x-kite::text class="mt-2">Welcome back!</x-kite::text>
+    </div>
+
+    <div class="space-y-6">
+        <x-kite::input label="Email" type="email" name="email" placeholder="Your email address" />
+
+        <x-kite::field>
+            <div class="mb-3 flex justify-between">
+                <x-kite::label for="password">Password</x-kite::label>
+                <x-kite::link href="#" variant="subtle" class="text-sm">Forgot password?</x-kite::link>
+            </div>
+            <x-kite::input type="password" name="password" id="password" placeholder="Your password" />
+            <x-kite::error name="password" />
+        </x-kite::field>
+    </div>
+
+    <div class="space-y-2">
+        <x-kite::button variant="primary" class="w-full">Log in</x-kite::button>
+        <x-kite::button variant="ghost" class="w-full">Sign up for a new account</x-kite::button>
+    </div>
+</x-kite::card>
 ```
+
+### Components
+
+This package provides the following components:
+
+-   `Button`
+-   `Card`
+-   `Error`
+-   `Field`
+-   `Heading`
+-   `Input`
+-   `Label`
+-   `Link`
+-   `Text`
 
 ## Testing
 
@@ -62,22 +96,9 @@ echo $kite->echoPhrase('Hello, Designbycode!');
 composer test
 ```
 
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [claudemyburgh](https://github.com/designbycode)
-- [All Contributors](../../contributors)
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 

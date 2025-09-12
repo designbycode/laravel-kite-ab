@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "npx tailwindcss -i ./resources/css/app.css -o ./resources/dist/kite.css",
+    "build:js": "npx esbuild ./resources/js/app.js --bundle --outfile=./resources/dist/kite.js"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "alpinejs": "^3.15.0",
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.9",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13"
+  }
+}
