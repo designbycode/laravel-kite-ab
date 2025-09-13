@@ -35,7 +35,7 @@ class KiteServiceProvider extends PackageServiceProvider
             return '<link rel="stylesheet" href="{{ asset(\'vendor/kite/kite.css\') }}">';
         });
 
-        Blade::directive('kiteScripts',function () {
+        Blade::directive('kiteScripts', function () {
             return '<script src="{{ asset(\'vendor/kite/kite.js\') }}" defer></script>';
         });
 
