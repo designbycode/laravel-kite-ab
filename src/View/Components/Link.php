@@ -28,8 +28,8 @@ class Link extends Component
     public function linkClasses(): string
     {
         return [
-            'default' => 'text-slate-900 underline-offset-4 hover:underline',
-            'subtle' => 'text-slate-500 hover:text-slate-700',
-        ][$this->variant] ?? 'text-slate-900 underline-offset-4 hover:underline';
+            'default' => 'text-primary underline-offset-4 hover:underline',
+            'subtle' => 'text-muted-foreground hover:text-foreground',
+        ][$this->variant] ?? 'text-primary underline-offset-4 hover:underline';
     }
 }
